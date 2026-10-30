@@ -1,0 +1,762 @@
+:root {
+  --ink: #263b55;
+  --navy: #263e5d;
+  --blue: #a9bdcf;
+  --blue-light: #e7edf1;
+  --paper: #fffdf8;
+  --gold: #b99a58;
+  --rose: #b88e88;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --script: "Allura", "Brush Script MT", cursive;
+  --sans: "Montserrat", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #e9e5df;
+  color: var(--ink);
+}
+body {
+  font-family: var(--serif);
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 22px;
+}
+.invite {
+  width: min(100%, 520px);
+  height: min(min(940px, calc(100svh - 44px)), 920px);
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: 0 28px 90px #1d2c3d35;
+  isolation: isolate;
+}
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #f8f5ef;
+}
+.scene-photo {
+  position: absolute;
+  inset: -4%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  filter: saturate(0.7);
+  opacity: 0.3;
+  transition:
+    transform 1.4s ease,
+    opacity 0.9s ease;
+}
+.photo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    #fffdf8ed 0%,
+    #f4f2ece8 48%,
+    #dce6eddd 100%
+  );
+}
+.scene-html {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: 58px 7% 82px;
+  scrollbar-width: none;
+}
+.scene-html::-webkit-scrollbar {
+  display: none;
+}
+.layout {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.eyebrow,
+.label,
+.confirm-label {
+  font: 500 12px/1.8 var(--sans);
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  color: #907b4e;
+}
+.script-title {
+  font: 400 clamp(54px, 13vw, 86px)/0.92 var(--script);
+  color: var(--navy);
+  margin: 14px 0 16px;
+  text-shadow: 0 2px #fff9;
+}
+.lead {
+  font: 500 clamp(17px, 4.4vw, 22px)/1.38 var(--serif);
+  color: #46566a;
+  max-width: 360px;
+  margin: 14px auto;
+  white-space: pre-line;
+}
+.ornament-line {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  font-size: 20px;
+  margin: 18px auto;
+}
+.small-note {
+  font: italic 15px var(--serif);
+  color: #7c8490;
+  margin-top: 24px;
+}
+.names-small {
+  font: 500 13px var(--sans);
+  letter-spacing: 0.24em;
+  color: #8e7950;
+  margin-top: 30px;
+}
+.floral {
+  position: absolute;
+  z-index: 4;
+  width: clamp(110px, 27%, 190px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 7px 8px #3a435022);
+}
+.floral-left {
+  left: -4%;
+  top: 14%;
+  max-height: 48%;
+}
+.floral-right {
+  right: -4%;
+  bottom: 10%;
+  max-height: 48%;
+}
+.floral-top {
+  top: -2%;
+  right: 5%;
+  width: 35%;
+  max-height: 27%;
+}
+.floral-bottom {
+  bottom: -2%;
+  left: 3%;
+  width: 34%;
+  max-height: 26%;
+}
+/* 01 · Portada: marco clásico con medallón */
+.cover-layout {
+  background: linear-gradient(135deg, #f9f6efdd, #e5edf2cc);
+  /*border: 1px solid #b79b6466;
+  outline: 1px solid #b79b6444;*/
+  outline-offset: -12px;
+  padding: 36px 18px;
+}
+.cover-frame {
+  width: 88%;
+  padding: 48px 16px 40px;
+  /* border: 1px solid #b99a5877; */
+  background: #fffdf6a8;
+  box-shadow: 0 18px 55px #253e5d12;
+  border-radius: 2%;
+}
+.cover-frame:before,
+.cover-frame:after {
+  content: "✧";
+  display: block;
+  color: var(--gold);
+  font-size: 22px;
+}
+.mini-rings {
+  font-size: 40px;
+  color: var(--gold);
+  margin: 16px auto 2px;
+}
+.cover-layout .script-title {
+  font-size: clamp(76px, 18vw, 112px);
+}
+/* 02 · Historia: panel desplazado */
+.story-layout {
+  place-items: center end;
+}
+.story-panel {
+  width: 88%;
+  padding: 42px 25px 48px;
+  background: #fffdf2e8;
+  border-left: 3px solid var(--gold);
+  box-shadow: 0 20px 55px #1c31431b;
+  text-align: left;
+  margin-right: 2%;
+}
+.story-panel .script-title {
+  font-size: clamp(55px, 13vw, 82px);
+  line-height: 0.86;
+}
+.story-panel .lead {
+  margin-left: 0;
+}
+.story-panel .ornament-line {
+  text-align: left;
+  margin-left: 0;
+}
+/* 03 · Frase: tarjeta flotante */
+.quote-layout {
+  background: radial-gradient(
+    ellipse at center,
+    #fffef9f2 0 48%,
+    #e3ebf0c9 100%
+  );
+}
+.quote-card {
+  width: 82%;
+  padding: 44px 22px;
+  border: 1px solid #b99a5880;
+  outline: 1px solid #b99a5844;
+  outline-offset: 8px;
+  background: #fffdf8d9;
+  box-shadow: 0 20px 60px #23364c19;
+}
+.quote-card .script-title {
+  font-size: clamp(76px, 18vw, 108px);
+}
+.quote-mark {
+  font: 90px/0.6 var(--serif);
+  color: #c5aa72;
+  margin: 25px 0 6px;
+}
+.quote-text {
+  font: italic 600 clamp(23px, 6vw, 31px)/1.25 var(--serif);
+  color: #344b68;
+  margin: 0 auto;
+  max-width: 310px;
+}
+/* 04 · Padres: ficha de dos columnas */
+.family-layout {
+  background: linear-gradient(160deg, #e8eff3aa, #fffdf6dd);
+}
+.family-card {
+  width: 90%;
+  padding: 42px 22px;
+  background: #fffdf5e8;
+  border-radius: 48% 48% 10px 10px / 18% 18% 10px 10px;
+  border: 1px solid #b99a5866;
+  box-shadow: 0 20px 55px #1d30401b;
+}
+.family-card .script-title {
+  font-size: clamp(58px, 14vw, 88px);
+}
+.family-columns {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+.family-names {
+  font: 500 clamp(15px, 3.8vw, 19px)/1.3 var(--serif);
+  white-space: pre-line;
+  color: #40536b;
+}
+.family-divider {
+  color: var(--gold);
+  font-size: 18px;
+}
+/* 05 · Padrinos: óvalo */
+.godparents-layout {
+  background: radial-gradient(ellipse at center, #fffdf8 0 45%, #dce7efb8 100%);
+}
+.oval-frame {
+  width: 82%;
+  min-height: 420px;
+  padding: 64px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b99a58a0;
+  border-radius: 50% / 43%;
+  background: #fffdf5df;
+  box-shadow:
+    inset 0 0 0 8px #fffdf7,
+    inset 0 0 0 9px #b99a5844,
+    0 22px 55px #1c304019;
+}
+.small-wreath {
+  font-size: 35px;
+  color: var(--gold);
+  margin: 24px auto 4px;
+}
+.oval-frame .script-title {
+  font-size: clamp(57px, 14vw, 86px);
+}
+/* 06 · Invitación: composición editorial */
+.invitation-layout {
+  background: linear-gradient(120deg, #e7edf0d9, #fffdf8e8 50%, #f2e9dfd9);
+}
+.invitation-card {
+  width: 92%;
+  padding: 44px 24px;
+  background: #fffdf8e8;
+  box-shadow: 0 24px 60px #293b4e1a;
+  border-top: 1px solid #b99a5888;
+  border-bottom: 1px solid #b99a5888;
+}
+.script-kicker {
+  font: italic 25px var(--serif);
+  color: #9b8558;
+  margin: 18px 0;
+}
+.couple-names {
+  font: 500 clamp(25px, 6vw, 39px)/1.16 var(--serif);
+  color: var(--navy);
+  overflow-wrap: anywhere;
+  margin: 12px auto;
+  max-width: 420px;
+}
+.invitation-card .lead {
+  max-width: 330px;
+}
+/* 07 · Evento: tarjeta de fecha */
+.details-layout {
+  background: linear-gradient(135deg, #e2eaf0e8, #fffdf8ed);
+}
+.details-card {
+  width: 88%;
+  padding: 42px 24px;
+  background: #fffdf7ec;
+  border: 1px solid #b99a5880;
+  box-shadow: 0 18px 60px #20364a1c;
+}
+.details-card .script-title {
+  font-size: clamp(62px, 15vw, 92px);
+}
+.date-ribbon {
+  margin: 24px -24px;
+  padding: 17px 12px;
+  background: #2c4562;
+  color: #fffdf6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.date-text {
+  font: 500 clamp(17px, 4.2vw, 22px) var(--serif);
+  text-transform: capitalize;
+}
+.time-text {
+  font: 500 9px var(--sans);
+  letter-spacing: 0.2em;
+}
+.detail-place {
+  padding: 18px 0 0;
+}
+.detail-place p {
+  font: 500 clamp(16px, 4vw, 20px)/1.25 var(--serif);
+  color: #40536b;
+  margin: 5px auto 15px;
+  overflow-wrap: anywhere;
+}
+/* 08 · Sobre: minimalismo romántico */
+.gift-layout {
+  background: radial-gradient(ellipse at center, #fffdf8 0 42%, #e4edf2d9 100%);
+}
+.gift-card {
+  width: 84%;
+  padding: 45px 24px;
+  background: #fffdf8e8;
+  border-radius: 5px;
+  box-shadow: 0 20px 65px #20364a1b;
+  border: 1px solid #b99a5877;
+}
+.gift-icon {
+  font-size: 48px;
+  color: var(--gold);
+  margin: 20px auto 0;
+}
+.gift-card .script-title {
+  font-size: clamp(60px, 15vw, 92px);
+}
+/* 09 · Cierre: marco azul */
+.final-layout {
+  background: linear-gradient(145deg, #dce7efed, #fffdf8ed 48%, #e7ded1d9);
+}
+.final-card {
+  width: 86%;
+  padding: 38px 22px;
+  border: 1px solid #b99a5888;
+  outline: 1px solid #b99a5844;
+  outline-offset: -10px;
+  background: #fffdf7c9;
+}
+.final-heart {
+  font-size: 54px;
+  color: var(--gold);
+  margin: 6px auto;
+}
+.final-card .script-title {
+  font-size: clamp(100px, 25vw, 145px);
+  margin: 2px auto;
+}
+.confirm-label {
+  margin: 24px auto 4px;
+}
+.confirm-number {
+  font: 600 17px var(--serif);
+  color: #314965;
+  overflow-wrap: anywhere;
+}
+.loading-scene {
+  font-size: 40px;
+  color: var(--gold);
+}
+.progress {
+  height: 3px;
+  position: absolute;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #d8e0e8;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  width: 11.11%;
+  background: var(--gold);
+  transition: width 0.55s ease;
+}
+.controls {
+  position: absolute;
+  z-index: 8;
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: #7a8490;
+  font: 10px var(--sans);
+  letter-spacing: 0.15em;
+}
+.control {
+  border: 1px solid #b9c5d1;
+  background: #ffffffdc;
+  color: var(--ink);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font: 27px/1 var(--serif);
+  cursor: pointer;
+  transition: 0.25s;
+}
+.control:hover {
+  background: var(--navy);
+  color: white;
+}
+.control:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.sound {
+  position: absolute;
+  z-index: 9;
+  right: 17px;
+  top: 17px;
+  border: 1px solid #b9c5d188;
+  border-radius: 30px;
+  padding: 9px 13px;
+  background: #fffdf2e8;
+  color: var(--ink);
+  font: 9px var(--sans);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+.sound span:first-child {
+  font-size: 16px;
+  color: var(--gold);
+}
+.scene-enter .scene-photo {
+  animation: photoZoom 8s ease both;
+}
+.scene-enter .layout {
+  animation: sceneReveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.scene-enter .floral {
+  animation: floralReveal 1.2s 0.12s ease both;
+}
+@keyframes sceneReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+@keyframes photoZoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+@keyframes floralReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+.corner {
+  position: absolute;
+  z-index: 5;
+  color: #b99a58a8;
+  font-size: 35px;
+  pointer-events: none;
+}
+.corner-tl {
+  top: 28px;
+  left: 22px;
+  transform: rotate(35deg);
+}
+.corner-br {
+  bottom: 64px;
+  right: 22px;
+  transform: rotate(215deg);
+}
+@media (min-width: 700px) {
+  body {
+    padding: 30px;
+  }
+  .invite {
+    width: min(100%, 760px);
+    height: min(min(960px, calc(100svh - 60px)), 960px);
+    border-radius: 30px;
+  }
+  .scene-photo {
+    background-position: center 45%;
+  }
+  .scene-html {
+    padding: 70px 9% 90px;
+  }
+  .layout {
+    max-width: 650px;
+  }
+  .cover-frame {
+    width: 78%;
+    padding: 54px 30px;
+  }
+  .story-panel {
+    width: 76%;
+    margin-right: 7%;
+    padding: 55px 42px;
+  }
+  .quote-card {
+    width: 70%;
+    padding: 58px 40px;
+  }
+  .family-card {
+    width: 76%;
+    padding: 55px 40px;
+  }
+  .oval-frame {
+    width: 68%;
+    min-height: 500px;
+  }
+  .invitation-card {
+    width: 78%;
+    padding: 56px 42px;
+  }
+  .details-card {
+    width: 74%;
+    padding: 55px 40px;
+  }
+  .gift-card {
+    width: 72%;
+    padding: 58px 40px;
+  }
+  .final-card {
+    width: 76%;
+    padding: 50px 40px;
+  }
+  .floral {
+    width: clamp(150px, 24%, 230px);
+  }
+}
+@media (max-width: 520px) {
+  body {
+    padding: 0;
+    background: var(--paper);
+  }
+  .invite {
+    width: 100%;
+    height: 100svh;
+    min-height: 560px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .scene-html {
+    padding: 62px 5% 82px;
+  }
+  .story-panel {
+    padding: 35px 20px;
+  }
+  .family-columns {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .family-divider {
+    line-height: 1;
+  }
+  .family-card {
+    padding: 34px 18px;
+  }
+  .oval-frame {
+    min-height: 390px;
+    padding: 42px 20px;
+  }
+  .details-card {
+    padding: 34px 17px;
+  }
+  .date-ribbon {
+    margin: 20px -17px;
+  }
+  .sound {
+    top: 14px;
+    right: 12px;
+  }
+  .corner-tl {
+    top: 24px;
+    left: 16px;
+  }
+  .corner-br {
+    right: 16px;
+    bottom: 65px;
+  }
+  .floral-left {
+    left: -10%;
+  }
+  .floral-right {
+    right: -10%;
+  }
+}
+@media (max-height: 700px) {
+  .invite {
+    min-height: 540px;
+  }
+  .scene-html {
+    padding-top: 50px;
+    padding-bottom: 72px;
+  }
+  .cover-frame,
+  .quote-card,
+  .family-card,
+  .invitation-card,
+  .details-card,
+  .gift-card,
+  .final-card {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .oval-frame {
+    min-height: 330px;
+    padding: 28px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+/* =========================================
+   ESCENA 1 - PORTADA
+========================================= */
+
+/* Flor superior izquierda */
+.cover-layout .floral-left {
+    left: 2%;
+    top: 2%;
+    width: 100%;
+    max-width: 215px;
+    max-height: 52%;
+    transform: rotate(235deg) scale(1.12) !important;
+    transform-origin: center;
+
+}
+
+/* Flor inferior derecha: desplazada a la izquierda */
+.cover-layout .floral-right {
+    right: 13%;
+    bottom: 10%;
+    max-height: 48%;
+}
+
+/* Aros matrimoniales centrales */
+.cover-layout .rings-image {
+    display: block;
+    width: 125px;
+    max-height: 125px;
+    height: auto;
+    object-fit: contain;
+
+    margin: 14px auto 4px;
+
+    position: relative;
+    z-index: 2;
+
+    filter: drop-shadow(0 5px 7px #92733a33);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 520px) {
+
+    .cover-layout .floral-left {
+        left: -10%;
+        top: 9%;
+        width: 34%;
+        max-width: 190px;
+        transform: rotate(270deg) scale(1.12);
+    }
+
+    .cover-layout .floral-right {
+        right: 9%;
+        bottom: 9%;
+    }
+
+    .cover-layout .rings-image {
+        width: 125px;
+        max-height: 125px;
+    }
+}

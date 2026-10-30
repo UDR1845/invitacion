@@ -1,0 +1,3 @@
+Coloca aquí tus imágenes decorativas (flores, hojas, marcos, anillos, etc.).
+Los HTML de scenes/ ya esperan varios nombres de flores. Usa PNG transparente o WebP.
+Puedes modificar los nombres de archivo directamente en cada scene-XX.html.
